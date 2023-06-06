@@ -1,8 +1,8 @@
 import './sideBar.scss'
 import Icons from '../tools/icons/Icons';
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { setWhiteBoardData } from 'redux/actions';
+// import { connect } from 'react-redux';
+// import { setWhiteBoardData } from 'redux/actions';
 const SideBar= (props) =>{
     const {
         setClickedTool, 
@@ -158,7 +158,5 @@ const SideBar= (props) =>{
         </div>
     )
 }
-const actionCreators = {
-    setWhiteBoardData:setWhiteBoardData
-  };
-export default connect(null,actionCreators)(SideBar);
+
+export default SideBar;

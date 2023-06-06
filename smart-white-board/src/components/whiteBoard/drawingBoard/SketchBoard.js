@@ -1176,7 +1176,8 @@ class SketchBoard extends PureComponent {
       {},
       style ? style : {},
       width ? { width: "100vw" } : {},
-      height ? { height: height } : { height: 512 }
+      height ? { height: height } : { height: 512 },
+  
     );
     return (
       <div
@@ -1184,7 +1185,9 @@ class SketchBoard extends PureComponent {
         ref={c => (this._container = c)}
         style={canvasDivStyle}
       >
-        <div style={{ display: "flex" }}>
+        <div 
+        style={{overflow:"hidden"}}
+        >
           <SideBar
             undo={this.undo}
             lineColor={this.props.lineColor}

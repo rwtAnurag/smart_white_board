@@ -1,18 +1,18 @@
 .whiteboard-header{
-    position: absolute;
+    position: fixed;
+    top: 20px;
+    height: 7vh;
+    left: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    border-radius: 10px;
     background-color: white;
-    width: 153px;
-    left: calc(50% - 76px);
+    width: 7vh;
+    // left: calc(50% - 76px);
     z-index: 15500;
     cursor: pointer;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    top: 0;
+    // top: 0;
+    // left:0;
     box-shadow: 0px 7px 14px rgb(0 0 0 / 5%), 0px 0px 3.12708px rgb(0 0 0 / 8%), 0px 0px 0.931014px rgb(0 0 0 / 17%) !important;
     .header-icon
       {
@@ -25,33 +25,41 @@
 }
 
 .color-size-box{
-    height: 85px;
+    height: 650px;
     cursor: default;
-width: 447px;
-background-color: #ffff;
-position: absolute;
-top: 47px;
-z-index: 15500;
-box-shadow: 0px 7px 14px rgba(0,0,0,.05),0px 0px 3.12708px rgba(0,0,0,.08),0px 0px 0.931014px rgba(0,0,0,.17)!important;
+    width: 156px;
+    background-color: white;
+    position: fixed;
+    top: 90px;
+    left: 1%;
+    z-index: 15500;
+    box-shadow: 0px 7px 14px rgba(0,0,0,.05),0px 0px 3.12708px rgba(0,0,0,.08),0px 0px 0.931014px rgba(0,0,0,.17)!important;
 }
 
 .color-card{
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
     cursor: pointer;
     background-color: beige;
     border: 1px solid #d3cdcd;
 }
 
 .color-box1{
-   display: flex;
-   justify-content: space-between;
-   padding: 10px;
+//    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns with equal width */
+    grid-template-rows: repeat(10, 1fr); /* Creates ten rows with equal height */
+    gap: 10px; 
+    padding: 10px;
    
 }
 .size-box{
-    height: 20px;
     display: flex;
+    height: 300px;
+    flex-direction: column;
     margin-top: 15px;
     // width: 256px;
     align-items: center;
@@ -60,75 +68,75 @@ box-shadow: 0px 7px 14px rgba(0,0,0,.05),0px 0px 3.12708px rgba(0,0,0,.08),0px 0
 }
 .blur_effect {
     // filter: blur(4px);
-    border-radius: 50%;
+    border-radius: 10px;
     background-color: #d7d7d7;
     cursor: pointer;
 }
 .size-1{
    height: 8px;
-   width: 8px;
+   width: 50%;
 }
 .size-2{
-    height: 9px;
-    width: 9px;
+    height: 8px;
+    width:55%;
 }
 .size-3{
-    height: 10px;
-    width: 10px;
+    height: 8px;
+    width: 60%;
 }
 .size-4{
-    height: 11px;
-    width: 11px;
+    height: 8px;
+    width: 65%;
 }
 .size-5{
-    height: 12px;
-    width: 12px;
+    height: 8px;
+    width: 70%;
 }
 .size-6{
-    height: 13px;
-    width: 13px;
+    height: 8px;
+    width: 73%;
 }
 .size-7{
-    height: 14px;
-    width: 14px;
+    height: 8px;
+    width: 76%;
 }
 .size-8{
-    height: 15px;
-    width: 15px;
+    height: 8px;
+    width: 79%;
 }
 .size-9{
-    height: 16px;
-    width: 16px;
+    height: 8px;
+    width: 82%;
 }
 .size-10{
-    height: 17px;
-    width: 17px;
+    height: 8px;
+    width: 85%;
 }
-.size-11{
-    height: 18px;
-    width: 18px;
-}
-.size-12{
-    height: 19px;
-    width: 19px;
-}
+// .size-11{
+//     height: 18px;
+//     width: 18px;
+// }
+// .size-12{
+//     height: 19px;
+//     width: 19px;
+// }
 .size-13{
-    height: 20px;
-    width: 20px;
+    height: 8px;
+    width: 88%;
 }
 .size-14{
-    height: 21px;
-    width: 21px;
+    height: 8px;
+    width: 91%;
 }
 .size-15{
-    height: 22px;
-    width: 22px;
+    height: 8px;
+    width: 94%;
 }
 .size-16{
-    height: 23px;
-    width: 23px;
+    height: 8px;
+    width: 97%;
 }
 .size-17{
-    height: 24px;
-    width: 24px;
+    height: 8px;
+    width: 100%;
 }

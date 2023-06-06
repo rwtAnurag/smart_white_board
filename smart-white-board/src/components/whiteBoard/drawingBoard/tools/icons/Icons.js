@@ -10,11 +10,12 @@ import ShapeIcon from "../svgs/ShapeIcon";
 import StrokeIcon from "../svgs/StrokeIcon";
 import TextIcon from "../svgs/TextIcon";
 import UndoIcon from "../svgs/UndoIcon";
+import selectIconImg from "../../../../assests/icons8-select-24.png"
 import ZoomIcon from "../svgs/ZoomIcon";
 import { IconText } from "./Utils";
 import Footer from "../../footer/Footer.js";
-import jsPDF from "jspdf";
-import useOutsideClick from "hooks/useOutsideClick";
+// import jsPDF from "jspdf";
+// import useOutsideClick from "hooks/useOutsideClick";
 import Triangle from "./assests/Triangle.png";
 import Arrow from "./assests/arrow.png"
 import Line from './assests/line.png'
@@ -22,12 +23,12 @@ import Line from './assests/line.png'
 // import EndFullScreen from './assests/end_full_screen.svg'
 // import html2canvas from "html2canvas";
 import "./icons.scss";
-import { ClearOutlined} from "@ant-design/icons";
-import {toastMessage } from "utils/Utilities";
+import { ClearOutlined, CaretDownOutlined, CaretUpOutlined} from "@ant-design/icons";
+// import {toastMessage } from "utils/Utilities";
 import {useEffect, useRef, useState } from "react";
 // import {RECORDING_VIDEO_SAVE_TYPE} from "constants/appConstats";
-import {uploadLectureNotes} from "components/teachingTools/screenRecorder/uploadLectureNotes.js"
-import { useSelector } from "react-redux";
+// import {uploadLectureNotes} from "components/teachingTools/screenRecorder/uploadLectureNotes.js"
+// import { useSelector } from "react-redux";
 
 const fabric = require("fabric").fabric;
 const Icons = (props) => {
@@ -57,17 +58,17 @@ const [enableShape,setEnableShape] = useState(false);
 const [pdfPageCount, setPdfPageCount] = useState(0);
 const [fullScreenEnable, setFullScreenEnable] = useState(false);
 const uploadImageRef = useRef(null);
-const { login } = useSelector(state => state);
+// const { login } = useSelector(state => state);
 // packageFeatures.school_settings.esc_setup_mode
 
-const { packageFeatures={} } = login
+// const { packageFeatures={} } = login
 // const [doc,setDoc] = useState(new JSPDF("p", "mm"))
 // const doc=new JSPDF("p", "mm")
 const wrapperRef = useRef(null);
 const close =() =>{
   setEnableShape(false);
 }
-useOutsideClick(wrapperRef, close);
+// useOutsideClick(wrapperRef, close);
 const handleShapeSelected=(type)=>{
     setShapesType(type)
 }
@@ -256,13 +257,13 @@ const downloadFileAsPdf = () =>{
           width: 1737 + Math.abs(right_coord) + Math.abs(left_coord),
           height:  1070 + Math.abs(right_coord) + Math.abs(left_coord) + Math.abs(top_coord) + Math.abs(bottom_coord),
       });
-      var pdf = new jsPDF("l", "mm", "a4");
-      pdf.addImage(dataURL, 'PNG', 10, 10, 280, 200, undefined,'FAST');
-      if(packageFeatures && packageFeatures?.school_settings && parseInt(packageFeatures?.school_settings?.esc_setup_mode)===1){
-        uploadLectureNotes(pdf.output("datauristring"),lecturePdfFilePath)
-      }else{
-        pdf.save(`${lecturePdfFilePath}`);
-      }
+      // var pdf = new jsPDF("l", "mm", "a4");
+      // pdf.addImage(dataURL, 'PNG', 10, 10, 280, 200, undefined,'FAST');
+      // if(packageFeatures && packageFeatures?.school_settings && parseInt(packageFeatures?.school_settings?.esc_setup_mode)===1){
+      //   uploadLectureNotes(pdf.output("datauristring"),lecturePdfFilePath)
+      // }else{
+      //   pdf.save(`${lecturePdfFilePath}`);
+      // }
     }
   }
   const handleImageChange= (e) =>{
@@ -286,10 +287,10 @@ const downloadFileAsPdf = () =>{
         reader.readAsDataURL(file);
         // fullscreen()
       }else{
-        toastMessage("No file")
+        // toastMessage("No file")
       }
     }else{
-      toastMessage("Only image file type is supported")
+      // toastMessage("Only image file type is supported")
     }
     
   }
@@ -307,20 +308,24 @@ const downloadFileAsPdf = () =>{
       <div onClick={()=>{deselectActiveObject();setClickedTool("selected")}} className={`icons-all ${ clickedTool=="selected" ? "slected-icon" :""}`}>
          <span  className="icon-svg">
           <SelectIcon />
+          {/* <img  className="line-img" style={{opacity:"0.3"}} src={selectIconImg}></img> */}
         </span>
-        <span  className="icon-text">{IconText.select}</span>
+        {/* <span  className="icon-text">{IconText.select}</span> */}
       </div>
       <div onClick={()=>{deselectActiveObject();setClickedTool("pencil")}} className={`icons-all ${ clickedTool=="pencil" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           <StrokeIcon />
         </span>
-        <span className="icon-text">{IconText.pencil}</span>
+        {/* <span className="icon-text">{IconText.pencil}</span> */}
       </div>
       <div  ref ={wrapperRef} onClick={()=>{deselectActiveObject();setClickedTool("shapes");setEnableShape(prev=> !prev)}} className={`icons-all ${ clickedTool=="shapes" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           <ShapeIcon />
+          {/* <DoubleRightOutlined className={`header-icon ${enableShape ? "minus_90" : ""}`}/> */}
         </span>
-        <span className="icon-text">{IconText.shapes}</span>
+       {!enableShape ? <CaretDownOutlined className="shapes-icon-main" /> : <CaretUpOutlined className="shapes-icon-main"  />}
+        
+        {/* <span className="icon-text">{IconText.shapes}</span> */}
             { enableShape ?<div style={{cursor:"default"}} className="shapes-selection">
                 <div className="shapes-first-row">
                   <div className={`shapes-block1 shapes-block ${shapesType==="circle" ? "shapes-block-selected":""}`}  onClick={()=>handleShapeSelected("circle")}>
@@ -333,8 +338,6 @@ const downloadFileAsPdf = () =>{
                       {/* <div className="csr-cls shapes-line"  ></div> */}
                       <img  className="line-img" style={{opacity:"0.3"}} src={Line}></img>
                   </div>
-                </div>
-                <div className="shapes-second-row">
                   <div className={`shapes-block4 shapes-block ${shapesType==="arrow" ? "shapes-block-selected":""}`} onClick={()=>handleShapeSelected("arrow")}>
                      {/* <ArrowRightOutlined   className="csr-cls" style={{fontSize: "40px"}} /> */}
                      <img  className="arrow-img" style={{opacity:"0.3"}} src={Arrow}></img>
@@ -348,6 +351,9 @@ const downloadFileAsPdf = () =>{
                      <div className="csr-cls shapes-ellipse"  ></div>
                   </div>
                 </div>
+                {/* <div className="shapes-second-row">
+                  
+                </div> */}
                 </div> : null}
       </div>
       <div  
@@ -362,7 +368,7 @@ const downloadFileAsPdf = () =>{
         <span className="icon-svg">
           <TextIcon />
         </span>
-        <span  className="icon-text">{IconText.text}</span>
+        {/* <span  className="icon-text">{IconText.text}</span> */}
       </div>
       <div
       onClick={() => uploadImageRef.current.click()}  
@@ -371,7 +377,7 @@ const downloadFileAsPdf = () =>{
           <input ref={uploadImageRef} accept="image/*" title=" " type="file" onChange={handleImageChange} />
         {/* </span> */}
         <ImageIcon/>
-        <span  className="icon-text">{"Add image"}</span>
+        {/* <span  className="icon-text">{"Add image"}</span> */}
       </div>    
       {/* <div onClick={()=>setClickedTool("image")} className={`icons-all ${ clickedTool=="image" ? "slected-icon" :""}`}>
         <span className="icon-svg">
@@ -386,7 +392,7 @@ const downloadFileAsPdf = () =>{
         <span className="icon-svg">
           <UndoIcon />
         </span>
-        <span className="icon-text">{IconText.undo}</span>
+        {/* <span className="icon-text">{IconText.undo}</span> */}
       </div>
       <div onClick={()=>{
         deselectActiveObject();
@@ -395,26 +401,26 @@ const downloadFileAsPdf = () =>{
         <span className="icon-svg">
           <RedoIcon />
         </span>
-        <span className="icon-text">{IconText.redo}</span>
+        {/* <span className="icon-text">{IconText.redo}</span> */}
       </div>
       <div  onClick={()=>{deselectActiveObject();setClickedTool("eraser")}}  className={`icons-all ${ clickedTool=="eraser" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           <EraserIcon />
         </span>
-        <span className="icon-text">{IconText.eraser}</span>
+        {/* <span className="icon-text">{IconText.eraser}</span> */}
       </div>
       <div onClick={()=>{clear();}}  className={`icons-all ${ clickedTool=="clear" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           {/* <ClearIcon /> */}
-          <ClearOutlined style={{color:"#f45e29"}} />
+          <ClearOutlined style={{color:"#444"}} />
         </span>
-        <span className="icon-text">{IconText.clear}</span>
+        {/* <span className="icon-text">{IconText.clear}</span> */}
       </div>
       <div onClick={()=>setClickedTool("pan")}  className={`icons-all ${ clickedTool=="pan" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           <ZoomIcon />
         </span>
-        <span className="icon-text">{IconText.pan}</span>
+        {/* <span className="icon-text">{IconText.pan}</span> */}
       </div>
       {/* <div onClick={()=>{downloadFileAsPdf()}}  className={`icons-all ${ clickedTool=="save" ? "slected-icon" :""}`}>
         <span  className="icon-svg">
@@ -436,11 +442,11 @@ const downloadFileAsPdf = () =>{
         {/* </span>
         <span className="icon-text ">{!fullScreenEnable ? "Full Screen" : "Exit Full Screen"}</span>
       </div> */}
-       <div>
+       {/* <div>
            <Footer
              zoom={zoom}
            />
-        </div>
+        </div> */}
     </div>
   );
 };

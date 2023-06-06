@@ -1,7 +1,8 @@
 import "./header.scss"
 import {CheckOutlined, DoubleRightOutlined} from "@ant-design/icons" 
+import { Slider } from 'antd';
 import {useRef } from "react"
-import useOutsideClick from "hooks/useOutsideClick";
+// import useOutsideClick from "hooks/useOutsideClick";
 const Header = (props) =>{
     const { 
         size,
@@ -17,15 +18,21 @@ const Header = (props) =>{
     const close =()=>{
         setSizeColorTool(false);
     }
-    useOutsideClick(wrapperRef, close);
+    // useOutsideClick(wrapperRef, close);
     const handleSetColor = (colorCode) =>{
         setColor(colorCode)
     }
 
+    const onChange = (newValue) => {
+        setSize(newValue);
+      };
+
     return(
-        <div ref={wrapperRef} onClick={()=>{setSizeColorTool(prev => !prev)}} className="whiteboard-header">
+        <div ref={wrapperRef} 
+        onClick={()=>{setSizeColorTool(prev => !prev)}}
+         className="whiteboard-header">
             <DoubleRightOutlined className={`header-icon ${sizeColorTool ? "minus_90" : ""}`}/>
-          { sizeColorTool ? <div className="color-size-box">
+          {  sizeColorTool ? <div onClick={(event)=>{ event.stopPropagation();}} className="color-size-box">
                <div className="size-box">
                      <div onClick={()=>setSize(1)} style={{backgroundColor:`${size===1 ? "black" : ""}`}} className="size-1 blur_effect"></div>
                      <div onClick={()=>setSize(2)} style={{backgroundColor:`${size===2 ? "black" : ""}`}} className="size-2 blur_effect"></div>
@@ -37,8 +44,8 @@ const Header = (props) =>{
                      <div onClick={()=>setSize(8)} style={{backgroundColor:`${size===8 ? "black" : ""}`}} className="size-8 blur_effect"></div>
                      <div onClick={()=>setSize(9)} style={{backgroundColor:`${size===9 ? "black" : ""}`}} className="size-9 blur_effect"></div>
                      <div onClick={()=>setSize(10)} style={{backgroundColor:`${size===10 ? "black" : ""}`}} className="size-10 blur_effect"></div>
-                     <div onClick={()=>setSize(11)} style={{backgroundColor:`${size===11 ? "black" : ""}`}} className="size-11 blur_effect"></div>
-                     <div onClick={()=>setSize(12)} style={{backgroundColor:`${size===12 ? "black" : ""}`}} className="size-12 blur_effect"></div>
+                     {/* <div onClick={()=>setSize(11)} style={{backgroundColor:`${size===11 ? "black" : ""}`}} className="size-11 blur_effect"></div>
+                     <div onClick={()=>setSize(12)} style={{backgroundColor:`${size===12 ? "black" : ""}`}} className="size-12 blur_effect"></div> */}
                      <div onClick={()=>setSize(13)} style={{backgroundColor:`${size===13 ? "black" : ""}`}} className="size-13 blur_effect"></div>
                      <div onClick={()=>setSize(14)} style={{backgroundColor:`${size===14 ? "black" : ""}`}} className="size-14 blur_effect"></div>
                      <div onClick={()=>setSize(15)} style={{backgroundColor:`${size===15 ? "black" : ""}`}} className="size-15 blur_effect"></div>
@@ -60,6 +67,21 @@ const Header = (props) =>{
                        <div onClick={()=>handleSetColor("#0317fc")} style={{backgroundColor:"#0317fc"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#0317fc" ? "" :"none" }`,position: "absolute"}}/></div>
                        <div onClick={()=>handleSetColor("#fc7303")} style={{backgroundColor:"#fc7303"}}className="color-card"><CheckOutlined style={{display:`${ color ==="#fc7303" ? "" :"none" }`,position: "absolute"}}/></div>
                        <div onClick={()=>handleSetColor("#9d03fc")} style={{backgroundColor:"#9d03fc"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#9d03fc" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#b3989b")} style={{backgroundColor:"#b3989b"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#b3989b" ? "" :"none" }`,position: "absolute"}}/></div>
+                       <div onClick={()=>handleSetColor("#61121c")} style={{backgroundColor:"#61121c"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#61121c" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#0b1b3b")} style={{backgroundColor:"#0b1b3b"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#0b1b3b" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#d9d798")} style={{backgroundColor:"#d9d798"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#d9d798" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#f200ff")} style={{backgroundColor:"#f200ff"}} className="color-card"><CheckOutlined style={{display:`${ color ==="##f200ff" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#ff0073")} style={{backgroundColor:"#ff0073"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#ff0073" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#edfcc7")} style={{backgroundColor:"#edfcc7"}} className="color-card"><CheckOutlined style={{display:`${ color ==="##edfcc7" ? "" :"none" }`,position: "absolute"}}/></div>
+
+                       <div onClick={()=>handleSetColor("#fc7f03")} style={{backgroundColor:"#fc7f03"}} className="color-card"><CheckOutlined style={{display:`${ color ==="#fc7f03" ? "" :"none" }`,position: "absolute"}}/></div>
                    </div>
                </div>
            </div> : null}
