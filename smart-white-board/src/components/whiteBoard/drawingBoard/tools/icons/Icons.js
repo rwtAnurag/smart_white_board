@@ -10,6 +10,7 @@ import ShapeIcon from "../svgs/ShapeIcon";
 import StrokeIcon from "../svgs/StrokeIcon";
 import TextIcon from "../svgs/TextIcon";
 import UndoIcon from "../svgs/UndoIcon";
+import clearImg from "../../../../assests/icons8-delete-48.png"
 import selectIconImg from "../../../../assests/icons8-select-24.png"
 import ZoomIcon from "../svgs/ZoomIcon";
 import { IconText } from "./Utils";
@@ -336,15 +337,15 @@ const downloadFileAsPdf = () =>{
                   </div>
                   <div className={`shapes-block3 shapes-block ${shapesType==="line" ? "shapes-block-selected":""}`} onClick={()=>handleShapeSelected("line")}>
                       {/* <div className="csr-cls shapes-line"  ></div> */}
-                      <img  className="line-img" style={{opacity:"0.3"}} src={Line}></img>
+                      <img  className="line-img" style={{opacity:"0.3",height:"24px"}} src={Line}></img>
                   </div>
                   <div className={`shapes-block4 shapes-block ${shapesType==="arrow" ? "shapes-block-selected":""}`} onClick={()=>handleShapeSelected("arrow")}>
                      {/* <ArrowRightOutlined   className="csr-cls" style={{fontSize: "40px"}} /> */}
-                     <img  className="arrow-img" style={{opacity:"0.3"}} src={Arrow}></img>
+                     <img  className="arrow-img" style={{opacity:"0.3",height:"24px"}} src={Arrow}></img>
                   </div>
                   <div className={`shapes-block5 shapes-block ${shapesType==="triangle" ? "shapes-block-selected":""}`} onClick={()=>handleShapeSelected("triangle")}>
                      {/* <CaretUpOutlined  className="csr-cls" style={{fontSize: "52px"}}/> */}
-                     <img  className="triangle-img" style={{opacity:"0.3"}} src={Triangle}></img>
+                     <img  className="triangle-img" style={{opacity:"0.3",height: "24px"}} src={Triangle}></img>
                      {/* <div className="tringle-shape"></div> */}
                   </div>
                   <div className={`shapes-block6 shapes-block ${shapesType==="ellipse" ? "shapes-block-selected":""}`} onClick={()=>handleShapeSelected("ellipse")}>
@@ -412,7 +413,9 @@ const downloadFileAsPdf = () =>{
       <div onClick={()=>{clear();}}  className={`icons-all ${ clickedTool=="clear" ? "slected-icon" :""}`}>
         <span className="icon-svg">
           {/* <ClearIcon /> */}
-          <ClearOutlined style={{color:"#444"}} />
+          {/* <ClearOutlined style={{color:"#444",fontSize:"10px",opacity:"0.4"}} />
+           */}
+            <img  className="triangle-img" style={{opacity:"0.6",height: "24px"}} src={clearImg}></img>
         </span>
         {/* <span className="icon-text">{IconText.clear}</span> */}
       </div>

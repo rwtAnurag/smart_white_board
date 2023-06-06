@@ -2,7 +2,7 @@
     // height: fit-content;
     // margin-top: 10px;
     // fill: #f45e29;
-    fill: #444;
+    fill: #242020;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +24,7 @@
     // padding: 20px;
     // height: 120px;
     // width: 64px;
-    top: 65px;
+    top: 46px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,7 +40,7 @@
     //     border-right: 1px solid #dddddd;
     // }
     .shapes-block{
-        width: 40px;
+        width: 30px;
         padding: 6px;
         height: 40px;
         cursor: pointer;                                                                                                                                                                                            
@@ -57,6 +57,7 @@
     }
     .triangle-img{
         transform: rotate(-180deg);
+        height: 24px;
         height: 35px;
     }
     .shapes-block-selected{
@@ -87,32 +88,32 @@
         .shapes-rectangle{
             // margin-left: 15px;
             // margin-right: 15px;
-            height: 28px;
+            height: 15px;
             border-right: 1px solid #dddddd;
-            width:  28px;
+            width:  15px;
             border: 2.5px solid black;
             opacity: 0.3;
         }
         .shapes-circle{
             // margin-right: 15px;
             border-radius: 50%;
-            height: 30px;
+            height: 20px;
             border-right: 1px solid #dddddd;
-            width: 30px;
+            width: 20px;
             border: 2.5px solid black;
             opacity: 0.3;
         }
         .shapes-ellipse{
             border-radius: 50%;
-            height: 16px;
-            width: 37px;
+            height: 10px;
+            width: 20px;
             border: 2.5px solid black;
             opacity: 0.3;
           }
         .shapes-line{
             // margin-left: 15px;
             // margin-right: 15px;
-            width: 35px;
+            width: 20px;
             height: 0;
             border: 1px solid black;
             opacity: 0.3;
@@ -178,5 +179,7 @@
 }
 
 .shapes-icon-main{
-    font-size:17 px;
+    font-size:17px;
+    position: relative;
+    top: -8px;
 }

@@ -1,5 +1,5 @@
 .sidebar-container{
-     height: 7vh;
+     height: 6vh;
      position: fixed;
      left: 25%;
      top: 20px;
@@ -28,9 +28,9 @@
            }
      }
      .icons-container {
-          height: 7vh;
+          height: 6vh;
           display: flex;
-          overflow-y: auto;
+          // overflow-y: auto;
           scrollbar-width: thin;
           &::-webkit-scrollbar {
                width: 6px;

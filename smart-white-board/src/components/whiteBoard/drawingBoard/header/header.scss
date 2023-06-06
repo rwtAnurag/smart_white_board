@@ -1,13 +1,13 @@
 .whiteboard-header{
     position: fixed;
     top: 20px;
-    height: 7vh;
+    height: 6vh;
     left: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 7vh;
+    width: 6vh;
     // left: calc(50% - 76px);
     z-index: 15500;
     cursor: pointer;
@@ -25,7 +25,7 @@
 }
 
 .color-size-box{
-    height: 650px;
+    height: 570px;
     cursor: default;
     width: 156px;
     background-color: white;
@@ -58,7 +58,7 @@
 }
 .size-box{
     display: flex;
-    height: 300px;
+    height: 230px;
     flex-direction: column;
     margin-top: 15px;
     // width: 256px;

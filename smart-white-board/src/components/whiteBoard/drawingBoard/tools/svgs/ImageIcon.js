@@ -1,6 +1,6 @@
 const ImageIcon=(props) => {
   return (
-    <svg x="0px" y="0px" viewBox="0 0 64 64" height={30} width={30} {...props}>
+    <svg x="0px" y="0px" viewBox="0 -8 84 84" height={30} width={30} {...props}>
       <g>
         <g>
           <path d="M32,11.1c0.8,0,1.5,0.7,1.5,1.5v28.5h-3V12.7C30.5,11.8,31.2,11.1,32,11.1L32,11.1z" />
